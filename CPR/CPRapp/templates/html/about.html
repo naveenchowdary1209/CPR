@@ -1,0 +1,49 @@
+{% extends 'html/base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>About Page</title>
+ 	<style>
+ 	body{
+	margin:0;
+	padding: 0;
+	font-family: Century Gothic;
+    }
+.header{
+   height: 100vh;
+   width: 100%;
+   background: url("{% static 'images/about.jpg' %}")no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+.main{
+	width:70%;
+	background: rgba( 0, 0, 0, .7);
+	color: #ffffff;
+	text-align: center;
+	padding: 50px;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+</style>
+ </head>
+ <body>
+ 	<div class="header">
+ 		<div class="main">
+ 			<h1>About us..</h1>
+ 			<p align="justify">Development is the result of society's capacity to organize resources to meet challanges and oppurtunities. Society passes through defined stages in the course of development. Thus, in the backdrop of development it is essential to address and resolve a problems.This very platform is absolutely for doing that."Civil Problem Resolution" is a web-based platform that addresses civic problems of the people living in a particular society like problems related to water, electricity, house, land encroachment, hospital, sewage, road blockage, etc. It is a completely online-based interactive web application where all the people living in a society can post or report his/her problem through this platform to the administrator.
+The administrator responds to the problem lodged by a user and provides a solution to the problem on time which depends on the necessity of the issue and count of votes. The higher the votes, the sooner the issue gets resolved. A problem is displayed as a pending one until it gets resolved.
+But one has to login first to access all the features and services in the platform. 
+Some of the services that can be availed by people living in a particular society or community through this platform are they can add a problem, view problem status, vote for issues, can contact admin, can give feedback on issues resolved.
+An administrator can avail following services from the platform as he/she can add new users by accepting their requests, can view problem, can address the problem, can set estimated completion time, can assign completion date if the issue got resolved, can view users feedback on problem resolved, can also access users data searching by different parameters like aadhar no, locality, contact no, etc. Admin can also update the status of the problem and can also get the count of total no of problems uploaded, no of problems in progress, and also no of problems resolved.
+</p>
+ </div>
+ 
+ </body>
+ </html>
+{% endblock %}

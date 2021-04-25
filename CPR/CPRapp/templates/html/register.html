@@ -1,0 +1,67 @@
+{% extends 'html/base.html' %}
+{% block title %} Register {% endblock %}
+{% block content %}
+<div class="container">
+	<div class="card col-md-6 mx-auto mt-4 shadow-lg">
+		<h3 class="bg-warning text-dark text-center p-2 border rounded mt-3">Registration</h3>
+		<div class="card-body">
+			<form method="POST">
+				{% csrf_token %}
+				    <!-- {{u.as_p}}   -->
+				<table class="table table-borderless">
+					{% for k in u %}
+					<tr>
+						<td>
+							{{k}}
+						</td>
+					</tr>
+					{% endfor %}
+
+				</table>
+				<div class="row">
+						<div class="col">
+							<a href="{% url 'ulog' %}" class="form-control btn btn-info col-sm" >Existing user</a>
+							
+						</div>
+						<div class="col">
+							<input type="submit" class="form-control btn btn-success col-sm" name="subscribe">
+						</div>	
+				</div>	
+
+			</form>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+
+<!-- <div class="container">
+	<div class="card col-md-8 mx-auto mt-4 shadow-lg">
+		<h3 class="bg-warning text-dark text-center p-2 border rounded mt-3">Registration</h3>
+		<form class="" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="username">UserName</label>
+			<input name="uname" type="text" id="uname" class="form-control" placeholder="Enter your UserName" required>
+			<label for="aadharno">Aadhar No</label>
+			<input name="aadharno" type="text" id="aadharno" class="form-control" placeholder="Enter your AadharNo" required>
+			<label for="city">City</label>
+			<input name="city" type="text" id="city" class="form-control" placeholder="Enter your City" required>
+			<label for="address">Address</label>
+			<input name="address" type="text" id="address" class="form-control" placeholder="Enter your Address" required>
+			<label for="email">Email</label>
+			<input name="email" type="email" id="email" class="form-control" placeholder="Enter your Email-Id" required>
+			<label for="Contactno">Contact No</label>
+			<input  name="contactno" id="contactno" class="form-control" placeholder="Enter your Contact no" required>
+			<label for="password">Password</label>
+			<input name="password1" type="password" id="password1" class="form-control" placeholder="Enter your Password" required>
+			<label for="password">Confirm Password</label>
+			<input name="password2" type="password" id="password2" class="form-control" placeholder="Confirm your Password" required>
+			<input type="submit" class="btn btn-success btn-lg mt-2 mx-auto form-control" value="submit">
+		</div>
+	    </form>
+    </div>
+</div> -->
+{% endblock %}

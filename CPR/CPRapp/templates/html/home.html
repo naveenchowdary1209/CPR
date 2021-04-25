@@ -1,0 +1,55 @@
+{% extends 'html/base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="row mt-5"></div>
+<!-- <marquee behavior="scroll" direction="left" style="height: 30px;overflow: hidden;
+ position: relative;background: red;color:yellow;border: 1px solid orange;margin-top:20px;"><strong>Login To Access All The Features !</strong></marquee> -->
+
+<!-- {% if messages %}
+	{% for j in messages %}
+	<div class="alert alert-{{j.tags}} alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  {{j}}
+</div>
+{% endfor %}
+{% endif %} -->
+<div class="container">
+  <div class="row mt-5"></div>
+  <div class="row mt-5">
+    <div class="card col-md-7 mx-1" style='background-color:floralwhite'>
+      <h3>Problems Registered</h3>
+    </div>
+    <div class="card col-md mx-1" style="background-color: cyan">
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">ADD PROBLEM</button></h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-7 mx-1">
+    </div>
+    <div class="card col-md mx-1" style="background-color: cyan">
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">PROBLEMS IN PROGRESS</button></h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-7 mx-1">
+    </div>
+    <div class="card col-md mx-1" style="background-color: cyan">
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">PROBLEMS COMPLETED</button></h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-7 mx-1">
+    </div>
+    <div class="card col-md mx-1" style="border-color:blue;background-color: cyan;">
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">SEND FEEDBACK</button></h3>
+    </div>
+  </div>
+</div>
+<script>
+function myfunction() 
+{
+  alert("Kindly Login To access these these Features");
+}
+</script>
+
+{% endblock %}

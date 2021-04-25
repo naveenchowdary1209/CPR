@@ -1,0 +1,40 @@
+{% extends 'html/base.html' %}
+{% block title %}more user info{% endblock %}
+{% block content %}
+<div class="container">
+
+		<div class="card col-md mx-2 mt-5 ">
+			<h3 class="bg-info text-center text-dark border rounded p-2 mt-3"> Full details</h3>
+			<table class="table table-borderless">
+			<tr>
+				<th>User Name</th>
+				<td>{{yu.uid}}</td>
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td>{{yu.age}}</td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td>{{yu.gender}}</td>
+			</tr>
+			<tr>
+				<th>Contact No</th>
+				<td>{{yu.contactno}}</td>
+			</tr>
+			<tr>
+				<th>Aadhar No</th>
+				<td>{{yu.aadharno}}</td>
+			</tr>
+			<tr>
+				<th>Place</th>
+				<td>{{yu.place}}</td>
+			</tr>
+			
+		</table>
+		<a href="{% url 'userview' %}" class="btn btn-primary btn-block my-2">back</a>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

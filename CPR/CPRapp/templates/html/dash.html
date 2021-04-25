@@ -1,0 +1,59 @@
+{% extends 'html/base.html' %}
+{% block title %}dashboard{% endblock %}
+{% block content %}
+<div class="container">
+	<!-- <div class="card col-md-4  mt-4">
+		{% csrf_token %}
+		<h3>Welcome {{user.username}}</h3>
+	</div> -->
+	<div class="container">
+	<div class="alert alert-success alert-dismissible mt-3" role="alert">
+		<h4>Welcome {{user.username}}</h4>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  {% if user.is_superuser %}
+     <div class="row mt-5"></div>
+     <div class="row mt-5"></div>
+     <div class="row mt-5"></div>
+    <div class="text-center mt-4">
+          <button type="button" class="btn btn-outline-primary shadow-lg btn-lg ">Total Problems Uploaded : 2 </button>
+          <button type="button" class="btn btn-outline-secondary shadow-lg btn-lg ">Problem in Progress : 0</button>
+          <button type="button" class="btn btn-outline-success  shadow-lg btn-lg ">Problem Solved : 0</button>
+      </div>
+
+
+  {% else %}
+	<div class="col-md mt-4 mb-3 card shadow-lg mx-1">
+			<h3 class="p-2 bg-info text-center text-light border rounded my-2">Your Profile</h3>
+			<table class="table table-borderless">
+				<tr>
+					<th>Username</th>
+					<td>{{user.username}}</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>{{user.email}}</td>
+				</tr>
+				<tr>
+					<th>Age</th>
+					<td>{{user.improfile.age}}</td>
+				</tr>
+				<tr>
+					<th>Aadhaar no</th>
+					<td>{{user.improfile.aadharno}}</td>
+				</tr>
+				<tr>
+					<th>Contact no</th>
+					<td>{{user.improfile.contactno}}</td>
+				</tr>
+				<tr>
+					<th>City/Town</th>
+					<td>{{user.improfile.place}}</td>
+				</tr>
+			</table>
+		</div>
+   {% endif %}
+</div>
+{% endblock %}

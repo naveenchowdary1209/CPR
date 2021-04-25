@@ -1,0 +1,26 @@
+{% extends 'html/base.html' %}
+{% block title %} Add problem {% endblock %}
+{% block content %}
+
+<div class="container">
+	<h1 align="center" class="mt-5"> Add Problem</h1>
+	<form class="" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="ptitle">Problem Title</label>
+			<input  name="ptitle" id="ptitle" class="form-control" placeholder="Enter problem title here" required>
+			<label for="pdesc">Subject</label>
+			<textarea class="form-control" id="pdesc" name="pdesc" rows="5" placeholder="Type your probelm Here.. " required></textarea>
+			<label for="location">Location</label>
+			<input  name="location" id="location" class="form-control" placeholder="Enter your location" required>
+			<input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="submit" onclick="myfunc()">
+		</div>
+	</form>
+</div>
+<script>
+function myfunc() 
+{
+  alert('Problem is reported Successfully')
+}
+</script>
+{% endblock %}

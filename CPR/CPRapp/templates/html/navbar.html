@@ -1,0 +1,102 @@
+{% load static %}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <div class="col-md-3"><a class="navbar-brand" href="{% url 'hm' %}">
+    <h3><strong style="color:Red">C</strong>ivil <strong style="color:Red">P</strong>roblem <strong style="color:Red">R</strong>esolution</h3>
+  </a></div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- <div><strong style="color:cyan">For the People</strong></div>
+  <div class="col-sm-2 max-auto"><img src="{% static 'images/forthepeople.png' %}" alt="hand" style="width:50px;height:40px;border-radius:50px;background-color:#343a40;">
+  </div> -->
+
+
+
+ <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+    {% if not user.is_authenticated %}
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'hm' %}"><h5 style="color:Gold">Home</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}"><h5 style="color:Gold">About</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact' %}"><h5 style="color:Gold">Contact</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'reg' %}"><h5 style="color:Gold">Registration</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'ulog' %}"><h5 style="color:Gold">User Login</h5></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'alog' %}"><h5 style="color:Gold">Admin Login</h5></a>
+    </li>
+    {% else %}
+      {% if user.is_superuser %}
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'dash' %}">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'userview' %}">View User</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'addpro' %}">Add Problem</a>
+          </li>
+          <li class="dropdown">
+                <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                View Problem
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'pns' %}">Problem Not started</a>
+                <a class="dropdown-item" href="">Problem Inprogress</a>
+                <a class="dropdown-item" href="">Problem Solved</a>
+                <a class="dropdown-item" href="">View All Problem</a>
+              </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contview' %}">View Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logo' %}">Logout</a>
+        </li>
+        <li class="nav-item" style="margin-left:300px">
+            <a class="nav-link" href="#">{{request.user.username}} Here </a>
+        </li>
+      {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dash' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'addpro' %}">Add Problem</a>
+          </li>
+          <li class="dropdown">
+                <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                View Problem
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'pns' %}">Problem Not started</a>
+                <a class="dropdown-item" href="">Problem Inprogress</a>
+                <a class="dropdown-item" href="">Problem Solved</a>
+                <a class="dropdown-item" href="">View All Problem</a>
+              </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'upf' %}">Update Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logo' %}">Logout</a>
+        </li>
+        <li class="nav-item" style="margin-left:500px">
+            <a class="nav-link" href="#">{{request.user.username}} Here </a>
+        </li>
+
+      {% endif %}
+{% endif %}
+</ul>
+
+</div>
+</nav>

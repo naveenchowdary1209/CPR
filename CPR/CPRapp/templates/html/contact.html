@@ -1,0 +1,24 @@
+{% extends 'html/base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+<div class="container">
+	<h1 align="center" class="mt-5"> Contact Form</h1>
+	<form class="was-validated" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="fname">First Name</label>
+			<input name="fname" type="text" id="fname" class="form-control" placeholder="Enter your First Name" required>
+			<label for="lname">Last Name</label>
+			<input name="lname" type="text" id="lname" class="form-control" placeholder="Enter your Last Name" required>
+			<label for="email">Email</label>
+			<input name="email" type="email" id="email" class="form-control" placeholder="Enter your Email-Id" required>
+			<label for="Contactno">Contact No</label>
+			<input  name="contactno" id="contactno" class="form-control" placeholder="Enter your Contact no" required>
+			<label for="subject">Subject</label>
+			<textarea class="form-control" id="subject" name="subject" rows="5" placeholder="Type your concern Here.. " required></textarea>
+			<input type="submit" class="btn btn-success btn-lg mt-1 mx-auto" value="submit">
+		</div>
+	</form>
+</div>
+{% endblock %}
