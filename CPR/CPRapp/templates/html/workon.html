@@ -1,0 +1,24 @@
+{% extends 'html/base.html' %}
+{% block title %} Work-on Form{% endblock %}
+{% block content %}
+
+<div class="container">
+	<h1 align="center" class="mt-5">Problem Acknowledgement form</h1>
+	<form class="" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="ptitle">Problem Title</label>
+			<input name="ptitle" type="text" id="ptitle" value="{{info.ptitle}}"class="form-control"
+			placeholder="Enter User Problem" required
+			><br>
+			<label for="stime">Set Estimated Time</label>
+			<input name="stime" type="date" id="stime" class="form-control" placeholder="Enter estimated date of completion" required><br>
+			<label for="wname">Worker Name</label>
+			<input name="wname" type="text" id="wname" value=" "class="form-control"placeholder="Enter Name of Alloted Worker" required><br>
+			<label for="cno">Worker Contact no</label>
+			<input name="cno" type="text" id="cno" value=" "class="form-control"placeholder="Enter Worker Contact no" required><br>
+			<input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="Send to User">
+		</div>
+	</form>
+</div>
+{% endblock %}

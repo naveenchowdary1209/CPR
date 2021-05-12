@@ -1,22 +1,22 @@
 {% extends 'html/base.html' %}
 {% block title %}problems not solved{% endblock %}
 {% block content %}
-<div class="card col-md-12 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
+<div class="card col-md-11 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
 mt-3 border rounded">PROBLEMS NOT SOLVED</h3>
 	<table class="table table-borderless table-hover">
 		<tr class="bg-dark text-light">
 			<td>s.no</td>
 			<td>Problem Title</td>
 			<td>Description</td>
-			<td>Location</td>
+			<td>Door-No</td>
 			<td>Post Date</td>
 			<td>Post By</td>
 			<td>Votes</td>
-			<td>Status</td>
 			{% if user.is_superuser %}
 				<td>Resolve Time</td>
 			{% else %}
 			    <td>Vote Now</td>
+			    <td>Delete Problem</td>
 			{% endif %}
 		</tr>
 		{% for i in info %}
@@ -24,16 +24,18 @@ mt-3 border rounded">PROBLEMS NOT SOLVED</h3>
 			<td>{{forloop.counter}}</td>
 			<td>{{i.ptitle}}</td>
 			<td>{{i.pdesc}}</td>
-			<td>{{i.location}}</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>{{i.doorno}}</td>
+			<td>{{i.postdate}}</td>
+			<td>{{i.postedby}}</td>
+			<td>{{i.vote}}</td>
 			<!-- <td><a href="">{{i.username}}</a></td> -->
 			{% if user.is_superuser %}
-			   <td><a class=" btn bg-primary rounded" href="">Set Estimated time</a></td>
+			   <td><a class=" btn bg-primary rounded" href="{% url 'wrk' i.id%}">WorkonThisProblem</a></td>
 			{% else %}
-				<td><a class=" btn bg-primary rounded" href="">Vote Now</a></td> 
+				<td><a class=" btn bg-primary rounded" href="{% url 'vote' i.id%}">VoteNow</a></td> 
+				{% if user.get_username == i.postedby %}
+				<td><a class=" btn bg-danger rounded" href="{% url 'pdlt' i.id%}">Delete Problem</a></td>
+				{% endif %}
 			{% endif %}
 		</tr>
 		{% endfor %}

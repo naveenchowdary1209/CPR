@@ -1,0 +1,46 @@
+{% extends 'html/base.html' %}
+{% block title %}problems not solved{% endblock %}
+{% block content %}
+<div class="card col-md-11 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
+mt-3 border rounded">PROBLEMS RESOLVED</h3>
+	<table class="table table-borderless table-hover">
+		<tr class="bg-dark text-light">
+			<td>s.no</td>
+			<td>Problem Title</td>
+			<td>Description</td>
+			<td>Door-No</td>
+			<td>Post Date</td>
+			<td>Post By</td>
+			<td>Votes</td>
+			{% if user.is_superuser %}
+				<td>User FeedBack</td>
+			{% else %}
+			    <td>Give FeedBack</td>
+			{% endif %}
+		</tr>
+		{% for i in info %}
+		<tr>
+			<td>{{forloop.counter}}</td>
+			<td>{{i.ptitle}}</td>
+			<td>{{i.pdesc}}</td>
+			<td>{{i.doorno}}</td>
+			<td>{{i.postdate}}</td>
+			<td>{{i.postedby}}</td>
+			<td>{{i.vote}}</td>
+			<!-- <td><a href="">{{i.username}}</a></td> -->
+			{% if user.is_superuser %}
+			   <td>{{i.feedback}}</td>
+			{% else %}
+			{% if user.get_username == i.postedby %}
+			    {% if '' == i.feedback %}
+				<td><a class=" btn bg-primary rounded" href="{% url 'givefeedback' i.id%}">Give FeedBack</a></td> 
+				{% else %}
+				<td><a class=" btn bg-warning rounded" href="">Already Given</a></td> 
+				{% endif %}
+				{% endif %}
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

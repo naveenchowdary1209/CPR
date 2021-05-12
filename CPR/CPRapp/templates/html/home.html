@@ -1,9 +1,53 @@
 {% extends 'html/base.html' %}
 {% block title %} Home {% endblock %}
 {% block content %}
+<!-- CSS -->
+<body>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  </head>
+  <style media="screen">
+  .carousel-cell {
+    width: 100%;
+    height:300px;
+    }
+
+    /* cell number */
+    .carousel-cell:before {
+      display: block;
+    }
+    .w3-image
+    {
+      width:100%;
+    }
+  </style>
+    <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
+      <div class="carousel-cell">
+        <img class="w3-image" src="https://muppaprojects.com/wp-content/uploads/2019/04/trends-you-need-to-know-before-buying-a-house-in-a-gated-community-amenities.jpg">
+      </div>
+
+      <div class="carousel-cell">
+        <img class="w3-image" src="https://www.aparnaconstructions.com/wp-content/uploads/2018/05/Gated-Communities.jpg">
+      </div>
+      <div class="carousel-cell">
+        <img class="w3-image " src="https://mldllifespacebucket01.s3.amazonaws.com/2020/07/Benefits_of_living_in_a_gated_community_-_MWC_Chennai.jpg">
+      </div>
+    </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 <div class="row mt-5"></div>
-<!-- <marquee behavior="scroll" direction="left" style="height: 30px;overflow: hidden;
- position: relative;background: red;color:yellow;border: 1px solid orange;margin-top:20px;"><strong>Login To Access All The Features !</strong></marquee> -->
+<marquee behavior="scroll" direction="left" style="height: 30px;overflow: hidden;
+ position: relative;background: red;color:yellow;border: 1px solid orange;margin-top:20px;"><strong>Login To Access All The Features !</strong></marquee>
 
 <!-- {% if messages %}
 	{% for j in messages %}
@@ -13,37 +57,56 @@
 </div>
 {% endfor %}
 {% endif %} -->
-<div class="container">
-  <div class="row mt-5"></div>
-  <div class="row mt-5">
-    <div class="card col-md-7 mx-1" style='background-color:floralwhite'>
-      <h3>Problems Registered</h3>
-    </div>
+<div class="card col-md-11 mt-3 mx-auto"><h3 class="p-3 bg-success text-center
+mt-3 border rounded">REPORTED PROBLEMS</h3>
+  <table class="table table-borderless table-hover">
+    <tr class="bg-dark text-light">
+      <td>s.no</td>
+      <td>Problem Title</td>
+      <td>doorno</td>
+      <td>Post Date</td>
+      <td>Posted By</td>
+      <td>Status</td>
+    </tr>
+    {% for i in info %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.ptitle}}</td>
+      <td>{{i.doorno}}</td>
+      <td>{{i.postdate}}</td>
+      <td>{{i.postedby}}</td>
+      <!-- <td>{{i.pstatus}}</td> -->
+      {% if "NotSolved" == i.pstatus %}
+         <td><Strong class=" btn bg-danger rounded " href="#">Not Solved</Strong></td>
+      {% elif "InProgress" == i.pstatus %}
+         <td><Strong class=" btn bg-warning rounded" href="#">In Progress</Strong></td>
+      {% else %}
+        <td><Strong class=" btn bg-success rounded" href="#">Completed</Strong></td> 
+      {% endif %}
+      <!-- <td><a href="">{{i.username}}</a></td> -->
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+    <div class="container">
+    <div class="row mt-5">
     <div class="card col-md mx-1" style="background-color: cyan">
       <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">ADD PROBLEM</button></h3>
     </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-md-7 mx-1">
-    </div>
     <div class="card col-md mx-1" style="background-color: cyan">
-      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">PROBLEMS IN PROGRESS</button></h3>
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">VIEW COMMUNITY MEMBERS</button></h3>
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col-md-7 mx-1">
-    </div>
     <div class="card col-md mx-1" style="background-color: cyan">
-      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">PROBLEMS COMPLETED</button></h3>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-md-7 mx-1">
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">VIEW FLOOR MANAGERS</button></h3>
     </div>
     <div class="card col-md mx-1" style="border-color:blue;background-color: cyan;">
-      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">SEND FEEDBACK</button></h3>
+      <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">VIEW WORKERS</button></h3>
     </div>
   </div>
+  <div class="row mt-5"></div>
 </div>
 <script>
 function myfunction() 
@@ -51,5 +114,6 @@ function myfunction()
   alert("Kindly Login To access these these Features");
 }
 </script>
+</body>
 
 {% endblock %}

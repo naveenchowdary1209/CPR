@@ -1,0 +1,40 @@
+{% extends 'html/base.html' %}
+{% block title %}Contact Details{% endblock %}
+{% block content %}
+{% if messages %}
+	{% for m in messages %}
+	<div class="alert alert-{{m.tags}} alert-dismissible mt-3" role="alert">
+		{{m}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+<div class="card col-md-9 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
+mt-3 border rounded">Contacts Details</h3>
+	<table class="table table-borderless table-hover">
+		<tr class="bg-dark text-light">
+			<td>s.no</td>
+			<td>Worker Name</td>
+			<td>Designation</td>
+			<td>ContactNo</td>
+			<td>Location</td>
+			<td>Update Details</td>
+			<td>Delete Worker</td>
+		</tr>
+		{% for i in info %}
+		<tr>
+			<td>{{forloop.counter}}</td>
+			<td>{{i.wname}}</td>
+			<td>{{i.wdesg}}</td>
+			<td>{{i.contactno}}</td>
+			<td>{{i.location}}</td>
+			<td><a class=" btn bg-primary rounded" href="{% url 'wupdate' i.id%}">Update</a></td>
+			<td><a class="btn bg-danger rounded mx-1" href="{% url 'wdlt' i.id%}">Delete</a></td>
+			<!-- <td><a href="">{{i.username}}</a></td> -->
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

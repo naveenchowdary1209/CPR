@@ -13,11 +13,17 @@ mt-3 border rounded">USER DETAILS</h3>
 		</tr>
 		{% for i in d %}
 		<tr>	
+			{% if "admin" == i.username %}
+			<td>{{forloop.counter}}</td>
+			<td>{{i.username}}</td>
+			<td>{{i.email}}</td>
+			{% else %}
 			<td>{{forloop.counter}}</td>
 			<td>{{i.username}}</td>
 			<td>{{i.email}}</td>
 			<td><a class=" btn bg-primary rounded" href="{% url 'more' i.id %}">More Details</a></td>
 			<td><a class="btn bg-danger rounded mx-1" href="{% url 'dlt' i.id%}">Delete</a></td>
+			{% endif %}
 		</tr>
 		{% endfor %}
 	</table>

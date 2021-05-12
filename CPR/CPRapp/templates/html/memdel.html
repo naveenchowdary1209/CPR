@@ -1,0 +1,18 @@
+{% extends 'html/base.html' %}
+{% block title %}Delete Member{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="card card-md-5 mt-5 mx-auto">
+		<div class=card-body mx-3>
+			<form method="POST">
+				{% csrf_token %}
+				<h3 class="bg-secondary text-center border rounded text-light">Delete Member</h3>
+				<p>are you sure you need to delete the Member{{userview.username}}
+				</p>
+				<input type="submit" value="Yes Confirm" class="btn btn-success">
+				<a href="{% url 'memview' %}" class="btn btn-danger">No</a>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

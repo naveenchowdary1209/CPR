@@ -1,0 +1,23 @@
+{% extends 'html/base.html' %}
+{% block title %}Update FM{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="card col-md-6 mt-4 shadow-lg mx-auto">
+    <h3 class="bg-light text-danger text-center mt-2 border rounded">Update Floor Manager Details</h3>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="fmname">Floor Manager Full Name</label><br>
+            <input  name="fmname" id="fmname" class="form-control" value="{{info.fmname}}" required><br>
+            <label for="floorno">Floor No</label><br>
+            <input  name="floorno" id="floorno" class="form-control" value="{{info.floorno}}" required><br>
+            <label for="fcno"> Contact no</label><br>
+            <input class="form-control" id="fcno" name="fcno"  value="{{info.fcno}}" required></input><br>
+            <input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="Update" >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

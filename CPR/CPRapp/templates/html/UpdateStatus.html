@@ -1,0 +1,32 @@
+{% extends 'html/base.html' %}
+{% block title %} Problem Completion Form{% endblock %}
+{% block content %}
+
+<div class="container">
+	<h1 align="center" class="mt-5">Problem Completion Form</h1>
+	<form class="" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="amount">Total Amount Worker Charged to Resolve a problem</label><br>
+			<input name="amount" type="text" id="amount" class="form-control"
+			placeholder="Enter Amount here" required
+			><br>
+			<label for="amount1">Amount Used From Community Fund</label><br>
+			<input name="amount1" type="text" id="amount1" class="form-control"
+			placeholder="Enter Amount here" required
+			><br>
+			<label for="charges">Extra Chrages To be Paid{IF ANY INCASE OF INTENTIONAL DAMAGES}</label><br>
+			<input name="amount2" type="text" id="amount2" class="form-control"
+			placeholder="Enter Amount here" required
+			><br>
+			<label for="status">Payment Status</label><br>
+			<select name="paystatus" id="paystatus" class="form-control"required>
+					<option selected disabled hidden style='display: none' value=''>Select Payment status here</option>
+				  <option value="completed">Completed</option>
+				  <option value="pending">Pending</option>
+			</select>
+			<input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="Send to User">
+		</div>
+	</form>
+</div>
+{% endblock %}

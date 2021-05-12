@@ -18,9 +18,9 @@
      <div class="row mt-5"></div>
      <div class="row mt-5"></div>
     <div class="text-center mt-4">
-          <button type="button" class="btn btn-outline-primary shadow-lg btn-lg ">Total Problems Uploaded : 2 </button>
-          <button type="button" class="btn btn-outline-secondary shadow-lg btn-lg ">Problem in Progress : 0</button>
-          <button type="button" class="btn btn-outline-success  shadow-lg btn-lg ">Problem Solved : 0</button>
+          <button type="button" class="btn btn-outline-primary shadow-lg btn-lg ">Total Problems Uploaded : {{NScount}}</button>
+          <button type="button" class="btn btn-outline-secondary shadow-lg btn-lg ">Problem in Progress : {{IPcount}}</button>
+          <button type="button" class="btn btn-outline-success  shadow-lg btn-lg ">Problem Solved : {{Ccount}}</button>
       </div>
 
 
@@ -41,16 +41,16 @@
 					<td>{{user.improfile.age}}</td>
 				</tr>
 				<tr>
-					<th>Aadhaar no</th>
-					<td>{{user.improfile.aadharno}}</td>
+					<th>Door-No</th>
+					<td>{{user.improfile.doorno}}</td>
 				</tr>
 				<tr>
 					<th>Contact no</th>
 					<td>{{user.improfile.contactno}}</td>
 				</tr>
 				<tr>
-					<th>City/Town</th>
-					<td>{{user.improfile.place}}</td>
+					<th>Aadhaar no</th>
+					<td>{{user.improfile.aadharno}}</td>
 				</tr>
 			</table>
 		</div>

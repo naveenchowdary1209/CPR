@@ -1,0 +1,32 @@
+{% extends 'html/base.html' %}
+{% block title %}AddWorker{% endblock %}
+{% block content %}
+<div class="container">
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-{{m.tags}} alert-dismissible mt-3" role="alert">
+        {{m}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+    <h1 align="center" class="mt-5"> Add Worker</h1>
+    <form class="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="wname">Worker Name</label>
+            <input  name="wname" id="wname" class="form-control" placeholder="Enter Worker Name here" required>
+            <label for="pdesc">Designation</label>
+            <input class="form-control" id="wdesg" name="wdesg"  placeholder="Enter Designation" required></input>
+            <label for="cno">Contact no</label>
+            <input class="form-control" id="cno" name="cno"  placeholder="Enter Contact no here" required></input>
+            <label for="location">Location</label>
+            <input  name="location" id="location" class="form-control" placeholder="Enter your location" required>
+            <input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="submit" >
+        </div>
+    </form>
+</div>
+
+{% endblock %}

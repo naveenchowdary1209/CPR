@@ -1,0 +1,26 @@
+{% extends 'html/base.html' %}
+{% block title %} Feedback Form {% endblock %}
+{% block content %}
+
+<div class="container">
+	<h1 align="center" class="mt-5"> Feedback Form</h1>
+	<form class="" method="POST">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="ptitle">Problem Title</label><br>
+			<input name="ptitle" type="text" id="ptitle" class="form-control" value={{info.ptitle}} required><br>
+			<label for="name">Name of the User</label><br>
+			<input name="lname" type="text" id="lname" class="form-control" value={{info.postedby}} required><br>
+			<label for="feedback">FeedBack</label><br>
+			<select name="feedback" id="feedback" class="form-control"required>
+					<option selected disabled hidden style='display: none' value=''>Select Your feedback Here</option>
+				  <option value="Excellent">Excellent</option>
+				  <option value="Good">Good</option>
+				  <option value="Satisfactory">Satisfactory</option>
+				  <option value="Poor">Poor</option>
+				</select><br>
+			<input type="submit" class="btn btn-success btn-lg mt-1 mx-auto" value="submit">
+		</div>
+	</form>
+</div>
+{% endblock %}

@@ -3,24 +3,38 @@
 {% block content %}
 
 <div class="container">
+	{% if messages %}
+	{% for m in messages %}
+	<div class="alert alert-{{m.tags}} alert-dismissible mt-3" role="alert">
+		{{m}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  {% endfor %}
+  {% endif %}
 	<h1 align="center" class="mt-5"> Add Problem</h1>
 	<form class="" method="POST">
 		{% csrf_token %}
 		<div class="form-group">
 			<label for="ptitle">Problem Title</label>
-			<input  name="ptitle" id="ptitle" class="form-control" placeholder="Enter problem title here" required>
+				<select name="ptitle" id="ptitle" class="form-control"required>
+					<option selected disabled hidden style='display: none' value=''>Select Your Problem Here</option>
+				  <option value="Electricity">Electricity issue</option>
+				  <option value="Water">Water issue</option>
+				  <option value="Interior issues">Interior issues</option>
+				  <option value="Security issues">Security issue</option>
+				  <option value="Bad conduct from neighbours">Bad Conduct From Neighbours</option>
+				  <option value="Maintainence issues">Maintainance issues</option>
+				  <option value="Waste Management issues">Waste Management issue</option>
+				  <option value="Parking Woes">Parking Woes</option>
+				</select>
 			<label for="pdesc">Subject</label>
-			<textarea class="form-control" id="pdesc" name="pdesc" rows="5" placeholder="Type your probelm Here.. " required></textarea>
-			<label for="location">Location</label>
-			<input  name="location" id="location" class="form-control" placeholder="Enter your location" required>
-			<input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="submit" onclick="myfunc()">
+			<textarea class="form-control" id="pdesc" name="pdesc" rows="5" placeholder="Type your problem Here.. " required></textarea>
+			<label for="doorno">Door-No</label>
+			<input  name="doorno" id="doorno" class="form-control" placeholder="Enter your Door-No" required>
+			<input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="submit">
 		</div>
 	</form>
 </div>
-<script>
-function myfunc() 
-{
-  alert('Problem is reported Successfully')
-}
-</script>
 {% endblock %}

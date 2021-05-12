@@ -8,7 +8,7 @@ class UsForm(UserCreationForm):
 	password2=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"confirm password"}))
 	class Meta:
 		model=User
-		fields=['username','email']
+		fields=['username','email',]
 		widgets={
 		"username":forms.TextInput(attrs={
 			"class":"form-control",
@@ -18,12 +18,11 @@ class UsForm(UserCreationForm):
 			"class":"form-control",
 			"placeholder":"Email",
 			}),
-
 		}
 class ImForm(forms.ModelForm):
 	class Meta:
 		model = ImProfile
-		fields = ["age","gender","contactno","aadharno","place"]
+		fields = ["age","gender","contactno","aadharno","doorno"]
 		widgets = {
 		"age":forms.NumberInput(attrs={
 			"class":"form-control",
@@ -39,8 +38,8 @@ class ImForm(forms.ModelForm):
 		"aadharno":forms.TextInput(attrs={
 			"class":"form-control","placeholder":"Enter your Aadhar no",
 			}),
-		"place":forms.TextInput(attrs={
-			"class":"form-control","placeholder":"Enter your Town/City",
+		"doorno":forms.TextInput(attrs={
+			"class":"form-control","placeholder":"Enter your door-no",
 			}),
 		}
 class UtupForm(forms.ModelForm):

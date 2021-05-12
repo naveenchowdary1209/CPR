@@ -1,0 +1,28 @@
+{% extends 'html/base.html' %}
+{% block title %}User Details{% endblock %}
+{% block content %}
+<div class="card col-md-9 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
+mt-3 border rounded">BLOCK MANAGERS DETAILS</h3>
+	<table class="table table-borderless table-hover">
+		<tr class="bg-dark text-light">
+			<td>s.no</td>
+			<td>Block Manager Name</td>
+			<td>Block No</td>
+			<td>Contact No</td>
+			<td>Update Details</td>
+			<td>Delete BlockManager</td>
+		</tr>
+		{% for i in info %}
+		<tr>	
+			<td>{{forloop.counter}}</td>
+			<td>{{i.fmname}}</td>
+			<td>{{i.floorno}}</td>
+			<td>{{i.fcno}}</td>
+			
+			<td><a class=" btn bg-primary rounded" href="{% url 'fmupdate' i.id%}">Update</a></td>
+			<td><a class="btn bg-danger rounded mx-1" href="{% url 'fmdlt' i.id%}">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

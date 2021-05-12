@@ -1,0 +1,29 @@
+{% extends 'html/base.html' %}
+{% block title %}User Details{% endblock %}
+{% block content %}
+<div class="card col-md-9 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
+mt-3 border rounded">COMMUNITY MEMBER DETAILS</h3>
+	<table class="table table-borderless table-hover">
+		<tr class="bg-dark text-light">
+			<td>s.no</td>
+			<td>Member Name</td>
+			<td>Email</td>
+			<td>Contact No</td>
+			<td>Door No</td>
+			<td>Update Details</td>
+			<td>Delete User</td>
+		</tr>
+		{% for i in d %}
+		<tr>	
+			<td>{{forloop.counter}}</td>
+			<td>{{i.mname}}</td>
+			<td>{{i.memail}}</td>
+			<td>{{i.mcno}}</td>
+			<td>{{i.mdoorno}}</td>
+			<td><a class=" btn bg-primary rounded" href="">Update</a></td>
+			<td><a class="btn bg-danger rounded mx-1" href="{% url 'memdlt' i.id%}">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'html/base.html' %}
+{% block title %}Update worker{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="card col-md-6 mt-4 shadow-lg mx-auto">
+    <h3 class="bg-light text-danger text-center mt-2 border rounded">Update Worker  Details</h3>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="wname">Worker Name</label><br>
+            <input  name="wname" id="wname" class="form-control" value="{{info.wname}}" required><br>
+            <label for="wdesg">Floor No</label><br>
+            <input  name="wdesg" id="wdesg" class="form-control" value="{{info.wdesg}}" required><br>
+            <label for="contactno"> Contact no</label><br>
+            <input class="form-control" id="contactno" name="contactno"  value="{{info.contactno}}" required></input><br>
+            <label for="location">Location</label><br>
+            <input class="form-control" id="location" name="location"  value="{{info.location}}" required></input><br>
+            <input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="Update" >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
