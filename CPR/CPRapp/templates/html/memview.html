@@ -1,6 +1,16 @@
 {% extends 'html/base.html' %}
 {% block title %}User Details{% endblock %}
 {% block content %}
+{% if messages %}
+	{% for m in messages %}
+	<div class="alert alert-{{m.tags}} alert-dismissible mt-3" role="alert">
+		{{m}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  {% endfor %}
+  {% endif %}
 <div class="card col-md-9 mt-3 mx-auto"><h3 class="p-3 bg-primary text-center
 mt-3 border rounded">COMMUNITY MEMBER DETAILS</h3>
 	<table class="table table-borderless table-hover">
@@ -20,7 +30,7 @@ mt-3 border rounded">COMMUNITY MEMBER DETAILS</h3>
 			<td>{{i.memail}}</td>
 			<td>{{i.mcno}}</td>
 			<td>{{i.mdoorno}}</td>
-			<td><a class=" btn bg-primary rounded" href="">Update</a></td>
+			<td><a class=" btn bg-primary rounded" href="{% url 'cmupdate' i.id%}">Update</a></td>
 			<td><a class="btn bg-danger rounded mx-1" href="{% url 'memdlt' i.id%}">Delete</a></td>
 		</tr>
 		{% endfor %}

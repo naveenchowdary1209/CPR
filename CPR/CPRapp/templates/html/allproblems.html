@@ -1,0 +1,36 @@
+{% extends 'html/base.html' %}
+{% block title %}All Problems{% endblock %}
+{% block content %}
+<div class="card col-md-11 mt-3 mx-auto"><h3 class="p-3 bg-success text-center
+mt-3 border rounded">ALL REPORTED PROBLEMS</h3>
+  <table class="table table-borderless table-hover">
+    <tr class="bg-dark text-light">
+      <td>S.no</td>
+      <td>Problem Title</td>
+      <td>Door-No</td>
+      <td>Post Date</td>
+      <td>Posted By</td>
+      <td>Status</td>
+    </tr>
+    {% for i in info %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.ptitle}}</td>
+      <td>{{i.doorno}}</td>
+      <td>{{i.postdate}}</td>
+      <td>{{i.postedby}}</td>
+      <!-- <td>{{i.pstatus}}</td> -->
+      {% if "NotSolved" == i.pstatus %}
+         <td><Strong class=" btn bg-danger rounded " href="#">Not Solved</Strong></td>
+      {% elif "InProgress" == i.pstatus %}
+         <td><Strong class=" btn bg-warning rounded" href="#">In Progress</Strong></td>
+      {% else %}
+        <td><Strong class=" btn bg-success rounded" href="#">Completed</Strong></td> 
+      {% endif %}
+      <!-- <td><a href="">{{i.username}}</a></td> -->
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+  <div class="row mt-5"></div>
+{% endblock %}

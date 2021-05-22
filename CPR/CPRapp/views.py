@@ -9,13 +9,26 @@ from CPR.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 # Create your views here.
 def home(rq):
 	data=Problem.objects.all()
+	paginator=Paginator(data,5)
+	page=rq.GET.get('page')
+	try:
+		data=paginator.page(page)
+	except PageNotAnInteger:
+		data=paginator.page(1)
+	except EmptyPage:
+		data=paginator.page(paginator.num_pages)
 	return render(rq,'html/home.html',{'info':data})
 def about(rq):
 	return render(rq,'html/about.html')
+def achievements(rq):
+	return render(rq,'html/achievements.html')
+def opinions(rq):
+	return render(rq,'html/opinions.html')
 def contact(rq):
 	if rq.method=="POST":
 		contact=Contact()
@@ -105,10 +118,12 @@ def addmem(rq):
 		memail=rq.POST.get('memail')
 		mcno=rq.POST.get('mcno')
 		mdoorno=rq.POST.get('mdoorno')
+		mimage=rq.POST.get('mimage')
 		member.mname=mname
 		member.memail=memail
 		member.mcno=mcno
 		member.mdoorno=mdoorno
+		member.mimage=mimage
 		member.save()
 		messages.success(rq,'Member is Successfully Added to Community')
 		return render(rq,'html/AddMember.html')
@@ -159,6 +174,11 @@ def pns(rq):
 def pis(rq):
 	data=Problem.objects.filter(pstatus="InProgress")
 	return render(rq,'html/pis.html',{'info':data})
+@login_required	
+def allpro(rq):
+	data=Problem.objects.all()
+	return render(rq,'html/allproblems.html',{'info':data})
+
 
 @login_required	
 def ps(rq):
@@ -206,6 +226,23 @@ def memdlt(rq,id):
 		data.delete()
 		return redirect('/mview')
 	return render(rq,'html/memdel.html',{'info':data})
+@login_required
+def cmupdate(rq,id):
+	data=Member.objects.get(id=id)
+	if rq.method == "POST":
+		member=Member.objects.get(id=id)
+		mname=rq.POST.get('mname')
+		memail=rq.POST.get('memail')
+		mcno=rq.POST.get('mcno')
+		mdoorno=rq.POST.get('mdoorno')
+		member.mname=mname
+		member.memail=memail
+		member.mcno=mcno
+		member.mdoorno=mdoorno
+		member.save()
+		messages.success(rq,'Community Member details are Successfully Updated ')
+		return redirect('/mview')	
+	return render(rq,'html/UpdateCm.html',{'info':data})
 @login_required	
 def fmdlt(rq,id):
 	data=FloorManager.objects.get(id=id)
@@ -295,7 +332,7 @@ def Upstatus(rq,id):
 		count.pstatus="Completed"
 		count.save()
 		subject = 'Your Problem is Resolved Successfully'
-		message = 'Hi '+count.postedby+'... Your Problem '+count.ptitle+' is successfully Resolved and..<br> Total Amount Worker Charged: '+str(count.pamount)+'<br> Amount Used from community fund : '+str(count.cfamount)+' <br> Any Extra Amount to be paid : '+str(count.xamount)+'<br> Payment Status :'+count.paystatus
+		message = 'Hi '+count.postedby+'... Your Problem '+count.ptitle+' is successfully Resolved and..\n 1)Total Amount Worker Charged: '+str(count.pamount)+'\n 2)Amount Used from community fund : '+str(count.cfamount)+'\n 3) Any Extra Amount to be paid : '+str(count.xamount)+' \n 4)Payment Status :'+count.paystatus
 		recepient = str(count.useremail)
 		send_mail(subject, 
             message, EMAIL_HOST_USER, [recepient], fail_silently = False)

@@ -22,7 +22,7 @@ class UsForm(UserCreationForm):
 class ImForm(forms.ModelForm):
 	class Meta:
 		model = ImProfile
-		fields = ["age","gender","contactno","aadharno","doorno"]
+		fields = ["age","gender","contactno","aadharno","doorno","profilepic"]
 		widgets = {
 		"age":forms.NumberInput(attrs={
 			"class":"form-control",
@@ -41,7 +41,10 @@ class ImForm(forms.ModelForm):
 		"doorno":forms.TextInput(attrs={
 			"class":"form-control","placeholder":"Enter your door-no",
 			}),
+		"profilepic":forms.FileInput(attrs={"value":"Profile-Pic",
+			"placeholder":"Select Profile Pic"}),
 		}
+		
 class UtupForm(forms.ModelForm):
 	class Meta:
 		model = User

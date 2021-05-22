@@ -37,7 +37,7 @@
         <img class="w3-image" src="https://www.aparnaconstructions.com/wp-content/uploads/2018/05/Gated-Communities.jpg">
       </div>
       <div class="carousel-cell">
-        <img class="w3-image " src="https://mldllifespacebucket01.s3.amazonaws.com/2020/07/Benefits_of_living_in_a_gated_community_-_MWC_Chennai.jpg">
+        <img class="w3-image" src="https://is1-2.housingcdn.com/4f2250e8/96fcfb24f742135784ab101460e88c82/v0/fs/2_bhk_apartment-for-rent-diwancheruvu-Rajahmundry.jpg">
       </div>
     </div>
 
@@ -61,9 +61,9 @@
 mt-3 border rounded">REPORTED PROBLEMS</h3>
   <table class="table table-borderless table-hover">
     <tr class="bg-dark text-light">
-      <td>s.no</td>
+      <td>S.no</td>
       <td>Problem Title</td>
-      <td>doorno</td>
+      <td>Door-No</td>
       <td>Post Date</td>
       <td>Posted By</td>
       <td>Status</td>
@@ -87,22 +87,23 @@ mt-3 border rounded">REPORTED PROBLEMS</h3>
     </tr>
     {% endfor %}
   </table>
+  {% include 'html/pagination.html' with page=info %} 
 </div>
 
     <div class="container">
     <div class="row mt-5">
-    <div class="card col-md mx-1" style="background-color: cyan">
+    <div class="card col-md mx-1" style="background:rgba( 0, 0, 0, .7);">
       <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">ADD PROBLEM</button></h3>
     </div>
-    <div class="card col-md mx-1" style="background-color: cyan">
+    <div class="card col-md mx-1" style="background:rgba( 0, 0, 0, .7);">
       <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">VIEW COMMUNITY MEMBERS</button></h3>
     </div>
   </div>
   <div class="row mt-5">
-    <div class="card col-md mx-1" style="background-color: cyan">
+    <div class="card col-md mx-1" style="background:rgba( 0, 0, 0, .7);">
       <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">VIEW FLOOR MANAGERS</button></h3>
     </div>
-    <div class="card col-md mx-1" style="border-color:blue;background-color: cyan;">
+    <div class="card col-md mx-1" style="border-color:blue;background:rgba( 0, 0, 0, .7);">
       <h3 style="text-align: center"><button class="btn info" onclick="myfunction()" style="border:solid;padding-top:2px;background-color:white">VIEW WORKERS</button></h3>
     </div>
   </div>
@@ -111,7 +112,7 @@ mt-3 border rounded">REPORTED PROBLEMS</h3>
 <script>
 function myfunction() 
 {
-  alert("Kindly Login To access these these Features");
+  alert("Kindly Login To access these Features");
 }
 </script>
 </body>

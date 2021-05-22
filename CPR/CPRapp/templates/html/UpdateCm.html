@@ -1,0 +1,25 @@
+{% extends 'html/base.html' %}
+{% block title %}Update CM{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="card col-md-6 mt-4 shadow-lg mx-auto">
+    <h3 class="bg-light text-danger text-center mt-2 border rounded">Update Community Member Details</h3>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="mname">Community Member Full Name</label><br>
+            <input  name="mname" id="mname" class="form-control" value="{{info.mname}}" required><br>
+            <label for="memail">Email-ID</label><br>
+            <input  name="memail" id="memail" class="form-control" value="{{info.memail}}" required><br>
+            <label for="mcno"> Contact no</label><br>
+            <input class="form-control" id="mcno" name="mcno"  value="{{info.mcno}}" required></input><br>
+            <label for="mdoorno">Member Door No</label><br>
+            <input  name="mdoorno" id="mdoorno" class="form-control" value="{{info.mdoorno}}" required><br>
+            <input type="submit" class="btn btn-success btn-lg mt-3 mx-auto form-control" value="Update" >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

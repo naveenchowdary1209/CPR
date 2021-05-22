@@ -19,6 +19,7 @@ class ImProfile(models.Model):
 	aadharno=models.CharField(max_length=16,default='')
 	contactno=models.CharField(max_length=10,default='')
 	doorno=models.CharField(max_length=100,default='')
+	profilepic=models.ImageField(default='profile.png')
 	uid = models.OneToOneField(User,on_delete=models.CASCADE)
 
 @receiver(post_save,sender=User)
@@ -57,9 +58,10 @@ class Member(models.Model):
 	memail=models.EmailField(max_length=200)
 	mcno=models.CharField(max_length=10,default='')
 	mdoorno=models.CharField(max_length=200)
+	mimage=models.ImageField(null=True,blank=True)
 	
 	def __str__(self):
-		return self.mname+""+self.memail+" "+self.mcno+""+self.mdoorno
+		return self.mname+""+self.memail+" "+self.mcno+""+self.mdoorno+""+self.mimage
 class FloorManager(models.Model):
 	fmname=models.CharField(max_length=200)
 	floorno=models.CharField(max_length=200)

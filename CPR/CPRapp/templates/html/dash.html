@@ -27,32 +27,39 @@
   {% else %}
 	<div class="col-md mt-4 mb-3 card shadow-lg mx-1">
 			<h3 class="p-2 bg-info text-center text-light border rounded my-2">Your Profile</h3>
-			<table class="table table-borderless">
-				<tr>
-					<th>Username</th>
-					<td>{{user.username}}</td>
-				</tr>
-				<tr>
-					<th>Email</th>
-					<td>{{user.email}}</td>
-				</tr>
-				<tr>
-					<th>Age</th>
-					<td>{{user.improfile.age}}</td>
-				</tr>
-				<tr>
-					<th>Door-No</th>
-					<td>{{user.improfile.doorno}}</td>
-				</tr>
-				<tr>
-					<th>Contact no</th>
-					<td>{{user.improfile.contactno}}</td>
-				</tr>
-				<tr>
-					<th>Aadhaar no</th>
-					<td>{{user.improfile.aadharno}}</td>
-				</tr>
-			</table>
+			<div class="row">
+					<div class="col-md-8 mx-1">
+							<table class="table table-borderless">
+								<tr>
+									<th>Username</th>
+									<td>{{user.username}}</td>
+								</tr>
+								<tr>
+									<th>Email</th>
+									<td>{{user.email}}</td>
+								</tr>
+								<tr>
+									<th>Age</th>
+									<td>{{user.improfile.age}}</td>
+								</tr>
+								<tr>
+									<th>Door-No</th>
+									<td>{{user.improfile.doorno}}</td>
+								</tr>
+								<tr>
+									<th>Contact no</th>
+									<td>{{user.improfile.contactno}}</td>
+								</tr>
+								<tr>
+									<th>Aadhaar no</th>
+									<td>{{user.improfile.aadharno}}</td>
+								</tr>
+							</table>
+					</div>
+					<div class="col mt-4">
+						<img  src="{{user.improfile.profilepic.url}}" width=200px height=200px style="border-radius:50%;">
+					</div>
+				</div>
 		</div>
    {% endif %}
 </div>

@@ -29,6 +29,9 @@ background: linear-gradient(to right, #070000, #4C0001, #070000);
     <li class="nav-item">
       <a class="nav-link" href="{% url 'contact' %}"><h3 style="color:Gold; font-family:Verdana Bold;">Contact Us</h3></a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'achievements' %}"><h3 style="color:Gold; font-family:Verdana Bold;">Achievements</h3></a>
+    </li>
     
     <li></li>
     <li class="nav-item">
@@ -41,8 +44,8 @@ background: linear-gradient(to right, #070000, #4C0001, #070000);
     <!-- <li class="nav-item">
       <a class="nav-link" href="{% url 'alog' %}"><h3 style="color:Gold; font-family:Verdana Bold;">Admin Login</h3></a>
     </li> -->
-    <div class="col-sm-2 mx-auto"><img src="{% static 'images/lion.png' %}" alt="lion" style="margin-left :150px;width:50px;height:50px;border-radius:50%;background-color:transparent;">
-  <Strong style="font-family:Brush Script MT;color:aqua;font-size:25px;margin-left:150px">Orion</Strong>
+    <div class="col-sm-2 mx-auto"><img src="{% static 'images/lion.png' %}" alt="lion" style="margin-left :100px;width:50px;height:50px;border-radius:50%;background-color:transparent;">
+  <Strong style="font-family:Brush Script MT;color:aqua;font-size:25px;margin-left:100px">Orion</Strong>
   </div>
     {% else %}
       {% if user.is_superuser %}
@@ -85,7 +88,7 @@ background: linear-gradient(to right, #070000, #4C0001, #070000);
                 <a class="dropdown-item" href="{% url 'pns' %}"><h5 style="color:black; font-family:Verdana Bold;">Problems Not Solved</h5></a>
                 <a class="dropdown-item" href="{% url 'pis' %}"><h5 style="color:black; font-family:Verdana Bold;">Problems in Progress</h5></a>
                 <a class="dropdown-item" href="{% url 'ps' %}"><h5 style="color:black; font-family:Verdana Bold;">Problems Resolved</h5></a>
-                <a class="dropdown-item" href=""><h5 style="color:black; font-family:Verdana Bold;">View All Problems</h5></a>
+                <a class="dropdown-item" href="{% url 'allpro' %}"><h5 style="color:black; font-family:Verdana Bold;">View All Problems</h5></a>
               </div>
         </li>
         <li class="nav-item">
@@ -107,6 +110,9 @@ background: linear-gradient(to right, #070000, #4C0001, #070000);
           <li class="nav-item">
             <a class="nav-link" href="{% url 'addwork' %}"><h5 style="color:Gold; font-family:Verdana Bold;">Add Worker</h5></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'userview' %}"><h5 style="color:Gold; font-family:Verdana Bold;">View Users</h5></a>
+          </li>
           <li class="dropdown">
                 <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <h5 style="color:Gold; font-family:Verdana Bold;">View Problem</h5>
@@ -115,7 +121,7 @@ background: linear-gradient(to right, #070000, #4C0001, #070000);
                 <a class="dropdown-item" href="{% url 'pns' %}">Problem Not started</a>
                 <a class="dropdown-item" href="{% url 'pis' %}">Problem Inprogress</a>
                 <a class="dropdown-item" href="{% url 'ps' %}">Problem Solved</a>
-                <a class="dropdown-item" href="">View All Problem</a>
+                <a class="dropdown-item" href="{% url 'allpro' %}">View All Problem</a>
               </div>
         </li>
         <li class="nav-item">
@@ -124,7 +130,7 @@ background: linear-gradient(to right, #070000, #4C0001, #070000);
         <li class="nav-item">
             <a class="nav-link" href="{% url 'logo' %}"><h5 style="color:Gold; font-family:Verdana Bold;">Logout</h5></a>
         </li>
-        <li class="nav-item" style="margin-left:150px">
+        <li class="nav-item" style="margin-left:100px">
             <a class="nav-link" href="#"><h5 style="color:Gold; font-family:Verdana Bold;">{{request.user.username}}</h5></a>
         </li>
 

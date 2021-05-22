@@ -5,6 +5,8 @@
 
 		<div class="card col-md mx-2 mt-5 ">
 			<h3 class="bg-info text-center text-dark border rounded p-2 mt-3"> Full details</h3>
+			<div class="row">
+					<div class="col-md-8 mx-1">
 			<table class="table table-borderless">
 			<tr>
 				<th>User Name</th>
@@ -30,10 +32,16 @@
 				<th>Aadhar No</th>
 				<td>{{yu.aadharno}}</td>
 			</tr>
-			
 		</table>
-		<a href="{% url 'userview' %}" class="btn btn-primary btn-block my-2">back</a>
-		</div>
+	</div>
+	<div class="col">
+		<div class="col mt-4">
+						<img  src="{{yu.profilepic.url}}" width=200px height=200px style="border-radius:50%;">
+					</div>
+				</div>
+			</div>
+		<div class="row">
+		<a href="{% url 'userview' %}" class="btn btn-primary btn-block my-2 mx-2">back</a>
 	</div>
 </div>
 
