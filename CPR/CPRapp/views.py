@@ -14,7 +14,7 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 # Create your views here.
 def home(rq):
 	data=Problem.objects.all()
-	paginator=Paginator(data,5)
+	paginator=Paginator(data,10)
 	page=rq.GET.get('page')
 	try:
 		data=paginator.page(page)
